@@ -6,24 +6,24 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:36:50 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/08 18:08:10 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:32:22 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	word_count(const char *str, char sep)
+int		word_count(const char *str, char sep)
 {
 	int	i;
 	int	words;
 
 	i = 0;
+	words = 0;
 	while (str[i])
 	{
-		while (str[i] == sep)
+		while (str[i] == sep && str[i])
 			i++;
-		while (str[i] != sep)
+		while (str[i] != sep && str[i])
 			i++;
 		words++;
 	}
@@ -34,9 +34,9 @@ int	word_count(const char *str, char sep)
 
 char	**ft_split(const char *s, char c)
 {
-	int	k;
-	int	i;
-	int	j;
+	int		k;
+	int		i;
+	int		j;
 	char	**tab;
 
 	k = 0;
@@ -59,19 +59,4 @@ char	**ft_split(const char *s, char c)
 	}
 	tab[k] = NULL;
 	return (tab);
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-	char **tab;
-
-	i = 0;
-	tab = ft_split(av[ac - 1], ' ');
-	while (i <= word_count(av[ac - 1], ' '))
-	{
-		printf("%s", tab[i]);
-		i++;
-	}
-	return (0);
 }
