@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:04:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/09/02 16:55:40 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:02:59 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,9 @@ char				*loop_buf(int fd, int *ret, char *tmp);
 char				*get_line(char *tmp);
 char				*get_tmp(char *tmp);
 int					get_next_line(int fd, char **line);
+int					gnl_strlen(const char *str);
+char				*gnl_strchr(const char *s, int c);
+char				*gnl_strjoin(char const *s1, char const *s2);
+char				*gnl_strdup(const char *s);
 
 #endif

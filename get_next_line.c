@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:39:14 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/09/02 16:57:06 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:01:55 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ char	*loop_buf(int fd, int *ret, char *tmp)
 	while (i <= BUFFER_SIZE)
 		buf[i++] = 0;
 	if (tmp)
-		str = ft_strdup(tmp);
+		str = gnl_strdup(tmp);
 	else
-		str = ft_strdup("");
+		str = gnl_strdup("");
 	if (!str)
 		return (NULL);
 	free(tmp);
 	tmp = NULL;
-	tmp = ft_strjoin(str, buf);
+	tmp = gnl_strjoin(str, buf);
 	free(str);
 	if (!tmp)
 		return (NULL);
@@ -74,7 +74,7 @@ char	*get_tmp(char *tmp)
 		free(tmp);
 		return (NULL);
 	}
-	str = malloc(sizeof(char) * (ft_strlen(tmp) - i));
+	str = malloc(sizeof(char) * (gnl_strlen(tmp) - i));
 	if (!str)
 		return (NULL);
 	j = 0;
@@ -94,7 +94,7 @@ int	get_next_line(int fd, char **line)
 	if (!line || BUFFER_SIZE <= 0 || fd < 0)
 		return (-1);
 	ret = 1;
-	while (!ft_strchr(tmp, '\n') && ret)
+	while (!gnl_strchr(tmp, '\n') && ret)
 	{
 		tmp = loop_buf(fd, &ret, tmp);
 		if (!tmp)
