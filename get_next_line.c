@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:39:14 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/09/02 15:34:49 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/09/02 16:57:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,29 +108,3 @@ int	get_next_line(int fd, char **line)
 		return (0);
 	return (1);
 }
-/*
-**int		main(int ac, char **av)
-**{
-**	char	*line;
-**	int		fd;
-**	int		ret;
-**	int		countline;
-**
-**	countline = 1;
-**	if (ac == 1)
-**		fd = 0;
-**	if (ac >= 2)
-**		fd = open(av[1], O_RDONLY);
-**	while ((ret = get_next_line(fd, &line)) == 1)
-**	{
-**		printf("line %d = %s - [%d]\n", countline, line, ret);
-**		free(line);
-**		countline++;
-**	}
-**	printf("line %d = %s - [%d]\n", countline, line, ret);
-**	free(line);
-**	printf("\nTest de LEAKS\n");
-**	system("leaks a.out | grep leaked\n");
-**	return (0);
-**}
-*/
