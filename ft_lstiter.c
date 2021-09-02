@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 18:33:52 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 18:35:36 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/19 11:40:51 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/01/19 11:44:36 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
-}
+	t_list	*ptr;
 
-int	main(void)
-{
-	printf("%d", ft_isascii('1'));
-	return (0);
+	ptr = lst;
+	while (ptr)
+	{
+		(*f)(ptr->content);
+		ptr = ptr->next;
+	}
 }

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 18:13:41 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 18:24:33 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/18 14:10:18 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/01/19 11:17:22 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if ((c >= 'a' && c <= 'z') || (c <= 'Z' && c >= 'A'))
-		return (1);
-	else
-		return (0);
-}
+	t_list	*ptr;
 
-int	main(void)
-{
-	printf("%d", ft_isalpha('1'));
-	return (0);
+	ptr = lst;
+	if (ptr)
+		while (ptr->next)
+			ptr = ptr->next;
+	return (ptr);
 }

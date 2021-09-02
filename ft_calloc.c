@@ -6,7 +6,7 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 14:27:50 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/07 14:48:15 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:24:34 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	size_t	i;
 
 	ptr = malloc(size * nmemb);
-	i = 0;
-	while (i <= nmemb)
-	{
-		((char *)ptr)[i] = 0;
-		i++;
-	}
+	if (!ptr)
+		return (NULL);
+	ft_memset(ptr, 0, nmemb * size);
 	return (ptr);
 }

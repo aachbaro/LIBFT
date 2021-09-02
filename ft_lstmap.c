@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 10:58:25 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/10 12:19:59 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/19 11:46:17 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/09/01 15:41:40 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
+	t_list	*newlist;
+	t_list	*newlink;
+	t_list	*ptr;
 
-	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (size <= 0)
-		return (ft_strlen((char *)src));
-	while (src[i] && i < size - 1)
+	if (!lst)
+		return (NULL);
+	newlist = NULL;
+	ptr = lst;
+	while (ptr)
 	{
-		dst[i] = src[i];
-		i++;
+		newlink = ft_lstnew((*f)(ptr->content));
+		if (!newlink)
+		{
+			ft_lstclear(&newlist, (*del));
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, newlink);
+		ptr = ptr->next;
 	}
-	dst[i] = 0;
-	return (ft_strlen((char *)src));
+	return (newlist);
 }

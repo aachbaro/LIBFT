@@ -6,7 +6,7 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:35:07 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 19:36:28 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/01/22 11:44:01 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_tolower(int c)
 {
-	if ((unsigned char)c <= 'Z' && (unsigned char)c >= 'A')
-		c += 32;
-	return (c);
+	if (c <= 'Z' && c >= 'A')
+		return (c += 32);
+	else
+		return (c);
 }

@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 18:07:33 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 18:10:07 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/18 15:16:22 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/01/18 15:24:55 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int	i;
-
-	i = 0;
-	while(str[i])
-		i++;
-	return (i);
-}
-
-int	main(void)
-{
-	char	*str = "Hello World";
-
-	printf("%d", ft_strlen(str));
-	return (0);
+	(*del)(lst->content);
+	free(lst);
 }

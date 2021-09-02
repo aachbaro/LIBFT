@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_clear.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 10:58:25 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/10 12:19:59 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/18 15:25:08 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/01/18 15:49:59 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	t_list	*ptr;
 
-	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (size <= 0)
-		return (ft_strlen((char *)src));
-	while (src[i] && i < size - 1)
+	while (*lst)
 	{
-		dst[i] = src[i];
-		i++;
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
 	}
-	dst[i] = 0;
-	return (ft_strlen((char *)src));
 }

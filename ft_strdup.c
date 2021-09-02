@@ -6,7 +6,7 @@
 /*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 14:14:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/07 14:23:42 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:25:29 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s)
 	while (s[i])
 		i++;
 	cpy = malloc(sizeof(char) * (i + 1));
+	if (!cpy)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

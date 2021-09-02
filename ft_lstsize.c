@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 19:26:11 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 19:33:50 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/18 13:29:31 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/01/19 11:37:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
-int	ft_toupper(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if ((unsigned char)c <= 'z' && (unsigned char)c >= 'a')
-		c -= 32;
-	return (c);
-}
+	int		i;
+	t_list	*ptr;
 
-int	main(void)
-{
-	printf(" %c\n %c", ft_toupper('3'), toupper('3'));
-	return (0);
+	i = 0;
+	ptr = lst;
+	while (ptr)
+	{
+		i++;
+		ptr = ptr->next;
+	}
+	return (i);
 }

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aachbaro <aachabaro@student.42.fr>         +#+  +:+       +#+        */
+/*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 19:35:07 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/01/06 19:36:28 by aachbaro         ###   ########.fr       */
+/*   Created: 2021/01/18 11:39:08 by aachbaro          #+#    #+#             */
+/*   Updated: 2021/09/01 15:42:45 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
-int	ft_tolower(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if ((unsigned char)c <= 'Z' && (unsigned char)c >= 'A')
-		c += 32;
-	return (c);
-}
+	t_list	*new;
 
-int	main(void)
-{
-	printf(" %c\n %c", ft_tolower('A'), tolower('A'));
-	return (0);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
